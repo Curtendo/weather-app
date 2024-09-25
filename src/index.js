@@ -38,8 +38,8 @@ function createWeatherObj(cityData) {
     tempMax: cityData.days[0].tempmax,
     humidity: cityData.currentConditions.humidity,
   };
-  const weatherobj = new WeatherObj(cityDataFiltered);
-  return weatherobj;
+
+  return new WeatherObj(cityDataFiltered);
 }
 
 async function getCityWeather(city = 'prague') {
