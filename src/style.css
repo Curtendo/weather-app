@@ -8,12 +8,13 @@ body {
   display: grid;
   grid-template-columns: 3fr 4fr 3fr;
   grid-template-rows: 2fr auto 3fr;
-  background-color: rgb(97, 197, 236);
+  background-color: #61c5ec;
   font-family: 'Poppins', sans-serif;
   font-size: 1.2rem;
   height: 100vh;
 }
 
+/* Form */
 .form-container {
   grid-column: 2/3;
   grid-row: 1/2;
@@ -38,6 +39,7 @@ input#city-name,
   font-size: 1rem;
 }
 
+/* Main container */
 .main-container {
   grid-column: 2/3;
   grid-row: 2/3;
@@ -48,9 +50,36 @@ input#city-name,
   justify-self: center;
   align-self: center;
   min-width: 300px;
-  max-width: max-content;
+  max-width: 390px;
+  min-height: 440px;
   border-radius: 20px;
   padding: 15px;
+  position: relative;
+}
+
+.main-container > * {
+  visibility: hidden;
+}
+
+.loading-div {
+  position: absolute;
+  display: flex;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+}
+
+.loading-div.show {
+  visibility: visible;
+}
+
+.weather-text {
+  text-align: center;
 }
 
 p {
@@ -62,11 +91,6 @@ p {
   font-size: 1.7rem;
 }
 
-.button-container {
-  grid-column: 2/3;
-  grid-row: 3/4;
-}
-
 .conditions-div {
   display: flex;
   gap: 10px;
@@ -74,7 +98,7 @@ p {
   align-items: center;
 }
 
-.weather-icon {
+.weather-icon-div {
   margin-top: 30px;
   margin-bottom: 50px;
 }
@@ -84,7 +108,27 @@ p {
   padding-right: 10px;
 }
 
+.min-max-div {
+  display: flex;
+  gap: 15px;
+}
+
+.temp-div {
+  display: flex;
+}
+
+#min-temp-div {
+  color: rgb(7, 68, 118);
+}
+
+#max-temp-div {
+  color: rgb(169, 21, 21);
+}
+
+/* Temperature Toggle Buttons */
 .button-container {
+  grid-column: 2/3;
+  grid-row: 3/4;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -99,13 +143,19 @@ button {
   font-size: 1.3rem;
   width: 60px;
   border: 1px solid black;
+  background-color: rgb(231, 231, 231);
+}
+
+.unit-toggle.activated {
+  box-shadow: inset 1px 1px 1px gray;
+  background-color: white;
 }
 
 button:active {
   box-shadow: inset 1px 1px 1px gray;
 }
 
-#button-celc {
+#button-cels {
   border-right: none;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;

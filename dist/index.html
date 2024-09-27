@@ -8,16 +8,46 @@
   <body>
     <div class="form-container">
       <form id="search">
-        <input type="text" name="city-name" id="city-name" placeholder="City name"/>
+        <input type="text" name="city-name" id="city-name" placeholder="City name" />
         <button type="submit" id="search-submit">Search</button>
       </form>
     </div>
     <div class="main-container">
+      <div class="loading-div">
+        <img src="./images/loading.gif" alt="Loading" />
+      </div>
       <p class="weather-text" id="location"></p>
-      <div class="weather-icon">
-        <img src='SVG/clear-day.svg' alt="clear-day" height='200' width='200'/>
+      <div class="weather-text temp-div">
+        <span class="temp" id="current-temp"></span>
+        <span class="temp-unit">°F</span>
+      </div>
+
+      <div class="weather-icon-div">
+        <img src="" alt="clear-day" height="170" width="170" id="weather-icon" />
+      </div>
+      <div class="conditions-div">
+        <span class="weather-text" id="conditions"></span>
+        <img src="SVG/rain.svg" alt="Chance of rain" height="25px" />
+        <span class="weather-text" id="rain-chance-number"></span>
+      </div>
+      <p class="weather-text">
+        Humidity:
+        <span class="weather-text" id="humidity"></span>
+      </p>
+      <div class="min-max-div">
+        <div class="weather-text temp-div" id="min-temp-div">
+          <span class="temp" id="min-temp"></span>
+          <span class="temp-unit">°F</span>
+        </div>
+        <div class="weather-text temp-div" id="max-temp-div">
+          <span class="temp" id="max-temp"></span>
+          <span class="temp-unit">°F</span>
+        </div>
       </div>
     </div>
-    <div class="button-container"></div>
+    <div class="button-container">
+      <button class="unit-toggle" id="button-cels">C°</button>
+      <button class="unit-toggle activated" id="button-fahr">F°</button>
+    </div>
   </body>
 </html>

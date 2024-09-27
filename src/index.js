@@ -1,4 +1,5 @@
 import './style.css';
+import './view.js';
 
 class WeatherObj {
   constructor({ location, icon, conditions, precipProb, tempCurrent, tempMin, tempMax, humidity }) {
@@ -20,7 +21,6 @@ async function fetchData(city) {
       `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?key=8CT7Y6AMEULH45Y3KZ5CBL92R`
     );
     cityData = await response.json();
-    console.log(cityData);
     return cityData;
   } catch (err) {
     console.log(err);
@@ -42,10 +42,8 @@ function createWeatherObj(cityData) {
   return new WeatherObj(cityDataFiltered);
 }
 
-async function getCityWeather(city = 'prague') {
+export async function getCityWeather(city = 'tokyo') {
   const fetchedData = await fetchData(city);
   const weatherobj = createWeatherObj(fetchedData);
-  console.log(weatherobj);
+  return weatherobj;
 }
-
-getCityWeather();

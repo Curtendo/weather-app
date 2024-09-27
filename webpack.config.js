@@ -18,6 +18,7 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         { from: path.resolve(__dirname, 'src/SVG'), to: 'SVG' }, // Copy SVG folder to dist
+        { from: path.resolve(__dirname, 'src/images'), to: 'images' }, // Copy SVG folder to dist
       ],
     }),
   ],
