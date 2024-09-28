@@ -21,6 +21,7 @@ async function fetchData(city) {
       `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?key=8CT7Y6AMEULH45Y3KZ5CBL92R`
     );
     cityData = await response.json();
+    console.log(cityData);
     return cityData;
   } catch (err) {
     console.log(err);

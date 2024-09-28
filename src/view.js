@@ -43,13 +43,20 @@ function displayWeatherData(weatherData) {
   const viewTempMax = document.getElementById('max-temp');
 
   viewLocation.textContent = weatherData.location;
-  viewCurrentTemp.textContent = weatherData.tempCurrent;
   viewIcon.src = `SVG/${weatherData.icon}.svg`;
   viewConditions.textContent = weatherData.conditions;
   viewRainChance.textContent = `${weatherData.precipProb}%`;
   viewHumidity.textContent = `${weatherData.humidity}%`;
-  viewTempMin.textContent = weatherData.tempMin;
-  viewTempMax.textContent = weatherData.tempMax;
+
+  if (isFahr) {
+    viewCurrentTemp.textContent = weatherData.tempCurrent;
+    viewTempMin.textContent = weatherData.tempMin;
+    viewTempMax.textContent = weatherData.tempMax;
+  } else {
+    viewCurrentTemp.textContent = convertToCelsius(weatherData.tempCurrent);
+    viewTempMin.textContent = convertToCelsius(weatherData.tempMin);
+    viewTempMax.textContent = convertToCelsius(weatherData.tempMax);
+  }
 }
 
 async function fetchAndDisplayWeather(cityName) {
